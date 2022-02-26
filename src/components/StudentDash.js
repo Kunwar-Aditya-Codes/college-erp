@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 import DataFile from "./DataFile";
+import StudentData from "./StudentData";
 import Submenu from "./Submenu";
 
 const StudentDash = () => {
@@ -43,7 +44,9 @@ const StudentDash = () => {
       </div>
 
       {/* Center */}
-      <div className=" flex-[80%]"></div>
+      <div className=" flex-[80%]">
+        <StudentData />
+      </div>
     </div>
   );
 };
