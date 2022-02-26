@@ -7,7 +7,7 @@ import Submenu from "./Submenu";
 
 const StudentDash = () => {
   const [student, setStudent] = useState({});
-  const [subnav, setSubnav] = useState(false);
+
   const navigate = useNavigate();
 
   onAuthStateChanged(auth, (currentStudent) => {
@@ -19,17 +19,21 @@ const StudentDash = () => {
     navigate("/");
   };
 
-  const showSubnav = () => setSubnav(!subnav);
-
   return (
-    <div className="border-2 border-black min-h-screen flex">
+    <div className=" min-h-screen flex">
       {/* Sidebar */}
-      <div className="border-2 border-fuchsia-400 flex-[20%]">
-        <div className="bg-[#9e0064] text-white p-2 text-justify font-serif py-4">
-          <p className="text-lg">User</p>
+      <div className=" flex-[20%] border-r-2 border-r-[#9e0064]">
+        <div className="bg-[#9e0064] text-white p-2 pl-4 text-justify font-serif py-4">
+          <p className="text-lg">User:</p>
           <p className="text-xl underline underline-offset-2">
             {student?.email}
           </p>
+          <button
+            className="mt-4 text-lg hover:scale-110 transition-all ease-in-out"
+            onClick={logout}
+          >
+            Logout
+          </button>
         </div>
         <div className=" mt-1">
           {DataFile.map((item, index) => {
@@ -39,7 +43,7 @@ const StudentDash = () => {
       </div>
 
       {/* Center */}
-      <div className="border-2 border-amber-400 flex-[80%]"></div>
+      <div className=" flex-[80%]"></div>
     </div>
   );
 };
