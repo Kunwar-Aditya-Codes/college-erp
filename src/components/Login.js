@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -43,10 +44,10 @@ const Login = () => {
           autoFocus
           required
         />
-        <label className="my-4 text-2xl "> Password</label>
+        <label className="my-4 text-2xl ">Password</label>
         <input
           className="text-lg pl-1"
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           value={password}
