@@ -2,7 +2,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
-import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
+      // TODO: Links auth and db to store data
 
       if (user) {
         alert("Sign in success!");
@@ -33,6 +33,7 @@ const Login = () => {
         <h1 className="font-medium text-3xl underline underline-offset-1 uppercase tracking-wide font-serif my-6">
           Student login
         </h1>
+
         <label className="my-4 text-2xl ">Email</label>
         <input
           className="text-lg pl-1"
@@ -40,8 +41,8 @@ const Login = () => {
           name="email"
           placeholder="Student Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
           autoFocus
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <label className="my-4 text-2xl ">Password</label>

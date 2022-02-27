@@ -15,6 +15,8 @@ const StudentDash = () => {
     setStudent(currentStudent);
   });
 
+  // console.log(student?.displayName);
+
   const logout = async () => {
     await signOut(auth);
     navigate("/");
