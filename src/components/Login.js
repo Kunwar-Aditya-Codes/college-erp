@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
@@ -12,12 +12,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      // TODO: Links auth and db to store data
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
 
       if (user) {
         alert("Sign in success!");
         navigate("/student-dashboard");
+      } else {
+        alert("Error!");
       }
     } catch (err) {
       console.log(err);
@@ -41,8 +42,8 @@ const Login = () => {
           name="email"
           placeholder="Student Email"
           value={email}
-          autoFocus
           onChange={(e) => setEmail(e.target.value)}
+          autoFocus
           required
         />
         <label className="my-4 text-2xl ">Password</label>

@@ -2,13 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="bg-slate-100">
-      <img
-        src="images/logo.png"
-        alt="Adypu Logo"
-        className="p-3 w-1/4 mx-auto"
-      />
-    </div>
+    <div className="bg-[url('images/logo.png')] bg-no-repeat h-[125.025px] bg-center bg-contain "></div>
   );
 };
 
